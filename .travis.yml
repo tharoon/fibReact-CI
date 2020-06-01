@@ -14,7 +14,7 @@ after_success:
     - docker build -t tharoon/tcubeFibreact-server ./server
     - docker build -t tharoon/tcubeFibreact-worker ./worker
 # Login into the docker cli
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
 # Take those images and push them into docker hub
     - docker push -t tharoon/tcubeFibreact-client
     - docker push -t tharoon/tcubeFibreact-nginx
