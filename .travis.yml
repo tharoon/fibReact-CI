@@ -3,20 +3,20 @@ language: generic
 services:
     - docker
 before_install:
-    docker build -t tharoon/fibReact-ci -f ./client/Dockerfile.dev ./client
+    docker build -t tharoon/fibreact-ci -f ./client/Dockerfile.dev ./client
         
 script:
-    docker run -e CI=true tharoon/fibReact-ci npm test
+    docker run -e CI=true tharoon/fibreact-ci npm test
 
 after_success:
-    - docker build -t tharoon/tcubeFibReact-client ./client
-    - docker build -t tharoon/tcubeFibReact-nginx ./nginx
-    - docker build -t tharoon/tcubeFibReact-server ./server
-    - docker build -t tharoon/tcubeFibReact-worker ./worker
+    - docker build -t tharoon/tcubeFibreact-client ./client
+    - docker build -t tharoon/tcubeFibreact-nginx ./nginx
+    - docker build -t tharoon/tcubeFibreact-server ./server
+    - docker build -t tharoon/tcubeFibreact-worker ./worker
 # Login into the docker cli
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Take those images and push them into docker hub
-    - docker push -t tharoon/tcubeFibReact-client
-    - docker push -t tharoon/tcubeFibReact-nginx
-    - docker push -t tharoon/tcubeFibReact-server
-    - docker push -t tharoon/tcubeFibReact-worker
+    - docker push -t tharoon/tcubeFibreact-client
+    - docker push -t tharoon/tcubeFibreact-nginx
+    - docker push -t tharoon/tcubeFibreact-server
+    - docker push -t tharoon/tcubeFibreact-worker
