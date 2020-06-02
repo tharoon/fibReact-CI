@@ -16,7 +16,7 @@ after_success:
 # Login into the docker cli
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
 # Take those images and push them into docker hub
-    - docker push -t tharoon/tcubefibreact-client
-    - docker push -t tharoon/tcubefibreact-nginx
-    - docker push -t tharoon/tcubefibreact-server
-    - docker push -t tharoon/tcubefibreact-worker
+    - docker push tharoon/tcubefibreact-client
+    - docker push tharoon/tcubefibreact-nginx
+    - docker push tharoon/tcubefibreact-server
+    - docker push tharoon/tcubefibreact-worker
